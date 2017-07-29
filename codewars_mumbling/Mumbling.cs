@@ -16,24 +16,24 @@ namespace codewars_mumbling
         {
             for (int count = 0; count < input.Length; count++)
             {
-                yield return ToUpper(input[count]) + RepeatChar(count, ToLoAwer(input[count]));
+                yield return string.Concat(ToUpperChar(input[count]), RepeatChar(count, ToLowerChar(input[count])));
             }
 
         }
 
-        private char ToLoAwer(char @char)
+        private char ToLowerChar(char @char)
         {
             return char.ToLower(@char);
         }
 
-        private char ToUpper(char @char)
+        private char ToUpperChar(char @char)
         {
             return char.ToUpper(@char);
         }
 
         private string RepeatChar(int count, char @char)
         {
-            return string.Concat(Enumerable.Repeat(@char, count).ToArray());
+            return string.Concat(Enumerable.Repeat(@char, count));
         }
 
     }
