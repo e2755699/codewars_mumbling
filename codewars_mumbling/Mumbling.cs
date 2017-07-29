@@ -12,35 +12,29 @@ namespace codewars_mumbling
             return String.Join("-", ToUpperFirstThenToLowerAndRepeat(input));
         }
 
-        private List<String> ToUpperFirstThenToLowerAndRepeat(string input)
+        private IEnumerable<String> ToUpperFirstThenToLowerAndRepeat(string input)
         {
-            List<String> output = new List<string>();
             for (int count = 0; count < input.Length; count++)
             {
-                string upperChar = input[count].ToString().ToUpper();
-
-                var subOutput = upperChar + toLowerAndRepeatChar(count, upperChar);
-
-                output.Add(subOutput);
+                yield return ToUpper(input[count]) + RepeatChar(count, ToLoAwer(input[count]));
             }
 
-            return output;
         }
 
-        private string toLowerAndRepeatChar(int count, string @char)
+        private char ToLoAwer(char @char)
         {
-            return RepeatChar(count, @char.ToLower());
+            return char.ToLower(@char);
         }
 
-        private static string RepeatChar(int count, string @char)
+        private char ToUpper(char @char)
         {
-            var subOutput = string.Empty;
- 
-            for (int i = 0; i < count; i++)
-            {
-                subOutput = string.Concat(subOutput, @char);
-            }
-            return subOutput;
+            return char.ToUpper(@char);
         }
+
+        private string RepeatChar(int count, char @char)
+        {
+            return string.Concat(Enumerable.Repeat(@char, count).ToArray());
+        }
+
     }
 }
