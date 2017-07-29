@@ -9,10 +9,10 @@ namespace codewars_mumbling
     {
         internal string Accum(string input)
         {
-            return String.Join("-", LoopEachCharToGenerateSubString(input));
+            return string.Join("-", LoopEachCharToGenerateSubString(input));
         }
 
-        private IEnumerable<String> LoopEachCharToGenerateSubString(string input)
+        private IEnumerable<string> LoopEachCharToGenerateSubString(string input)
         {
             for (int count = 0; count < input.Length; count++)
             {
